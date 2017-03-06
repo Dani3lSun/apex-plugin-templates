@@ -68,7 +68,7 @@ wwv_flow_api.create_plugin(
 '  ELSE',
 '    l_element_item_id := p_item.name;',
 '    l_name            := apex_plugin.get_input_name_for_page_item(FALSE);',
-'    l_escaped_value   := sys.htf.escape_sc(p_value);',
+'    l_escaped_value   := apex_escape.html(p_value);',
 '    --',
 '    -- build input html string',
 '    l_html_string := ''<input type="text" '';',

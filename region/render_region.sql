@@ -19,8 +19,8 @@ BEGIN
   l_region_id := apex_escape.html_attribute(p_region.static_id ||
                                             '_myregion');
   -- escape input
-  l_attr_01 := sys.htf.escape_sc(l_attr_01);
-  l_attr_02 := sys.htf.escape_sc(l_attr_02);
+  l_attr_01 := apex_escape.html(l_attr_01);
+  l_attr_02 := apex_escape.html(l_attr_02);
   --
   -- write region html
   sys.htp.p('<div id="' || l_region_id ||

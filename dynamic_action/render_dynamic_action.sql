@@ -13,6 +13,9 @@ BEGIN
     apex_plugin_util.debug_dynamic_action(p_plugin         => p_plugin,
                                           p_dynamic_action => p_dynamic_action);
   END IF;
+  -- escape input
+  l_attr_01 := apex_escape.html(l_attr_01);
+  l_attr_02 := apex_escape.html(l_attr_02);
   --
   -- add JavaScript files
   apex_javascript.add_library(p_name           => 'my_javascript_file',
