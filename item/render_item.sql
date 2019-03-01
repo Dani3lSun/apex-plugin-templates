@@ -14,7 +14,17 @@ FUNCTION render_item(p_item                IN apex_plugin.t_page_item,
   l_html_string     VARCHAR2(2000);
   l_element_item_id VARCHAR2(200);
   --
-BEGIN
+BEGIN    
+  -- pass debug information to APEX framework
+  if apex_application.g_debug then
+      apex_plugin_util.debug_page_item (
+          p_plugin              => p_plugin,
+          p_page_item           => p_item,
+          p_value               => p_value,
+          p_is_readonly         => p_is_readonly,
+          p_is_printer_friendly => p_is_printer_friendly );
+  end if;
+  --
   -- printer friendly display
   IF p_is_printer_friendly THEN
     apex_plugin_util.print_display_only(p_item_name        => p_item.name,
